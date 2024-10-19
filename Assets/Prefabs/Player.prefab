@@ -127,6 +127,7 @@ MonoBehaviour:
   translation_speed: 4
   rotation_speed: 80
   _body: {fileID: 8223095638475870151}
+  movementSound: {fileID: 0}
 --- !u!1 &8223095638475870151
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +203,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d5d28a86b280d0440947641bcb3b8d8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
