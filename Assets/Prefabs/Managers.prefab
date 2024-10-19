@@ -47,5 +47,7 @@ MonoBehaviour:
   _spawnPoint: {fileID: 0}
   _player: {fileID: 0}
   _cameraGO: {fileID: 0}
+  _map: {fileID: 0}
   _trashPrefab: {fileID: 6786868083026706203, guid: 153ee6e8a98efac4a8c8169523e05112, type: 3}
+  _wagonPrefab: {fileID: 1250137960927174143, guid: fffdb2d46108b674c8b90573eec8de06, type: 3}
   _respawnDelay: 1

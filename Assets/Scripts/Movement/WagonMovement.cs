@@ -52,9 +52,10 @@ public class WagonMovement : MonoBehaviour
 
             _head.transform.position += translation_delta;
             _head.transform.Rotate(0.0f, 0.0f, Vector3.Angle(transform.up, tail_direction));
-            SetBodyPosition();
-            SetTailPosition();
         }*/
+        SetHeadPosition();
+        SetBodyPosition();
+        SetTailPosition();
     }
     
     private void SetHeadPosition()

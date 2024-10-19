@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraPosition: {fileID: 4810623093135997473}
   collisionAudioSource: {fileID: 0}
+  trashAudioSource: {fileID: 0}
 --- !u!114 &7692740916947324160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +129,8 @@ MonoBehaviour:
   translation_speed: 4
   rotation_speed: 80
   _body: {fileID: 8223095638475870151}
+  _tail: {fileID: 5506984291009839934}
+  maxSpeed: 0.1
   movementSound: {fileID: 0}
 --- !u!1 &8223095638475870151
 GameObject:
