@@ -31,42 +31,39 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // Event management
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void AddNearPlanet(PlanetController planet)
     {
-        if (_nearPlanets == null || collision == null)
+        if (planet == null || _nearPlanets == null)
             return;
 
-        PlanetController pController = collision.GetComponent<PlanetController>();
-        if (pController == null)
-            return;
-
-        if (_nearPlanets.Contains(pController))
+        if (_nearPlanets.Contains(planet))
         {
-            Debug.Log("Planet " + pController.name + " is already in the list");
+            Debug.Log("Planet " + planet.name + " is already in the list");
             return;
         }
 
-        _nearPlanets.Add(pController);
+        _nearPlanets.Add(planet);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void RemoveNearPlanet(PlanetController planet)
     {
-        if (_nearPlanets == null || collision == null)
+        if (planet == null || _nearPlanets == null)
             return;
 
-        PlanetController pController = collision.GetComponent<PlanetController>();
-        if (pController == null)
-            return;
-
-        if (_nearPlanets.Contains(pController))
+        if (_nearPlanets.Contains(planet))
         {
-            _nearPlanets.Remove(pController);
+            _nearPlanets.Remove(planet);
         }
         else
         {
-            Debug.Log("Trying to remove " + pController.name
+            Debug.Log("Trying to remove " + planet.name
                 + " planet that was already removed");
         }
+    }
+
+    public void InteractWithTrash(TrashController trash)
+    {
+        // TODO EW : Put trash in inventory
+        return;
     }
 }
