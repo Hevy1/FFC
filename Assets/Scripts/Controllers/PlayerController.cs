@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Transform _cameraPosition = null;
+
     // Fields
     private List<PlanetController> _nearPlanets = null;
+
+    // Properties
+    public PlayerManager PlayerManager { get; set; }
+    public Transform CameraPosition { get { return _cameraPosition; } }
 
     // Accessors
     public List<PlanetController> GetNearPlanets()
