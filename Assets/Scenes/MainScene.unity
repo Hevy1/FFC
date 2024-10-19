@@ -316,6 +316,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1319701061716516599, guid: b6ded9e0b567ac3468a291e1ca2301e2, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 2141001066}
     - target: {fileID: 3244294499705140820, guid: b6ded9e0b567ac3468a291e1ca2301e2, type: 3}
       propertyPath: m_Name
       value: Example

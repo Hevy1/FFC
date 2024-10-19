@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Example : MonoBehaviour
 {
+    [SerializeReference] private Camera _camera;
+
     // Start is called before the first frame update
-    public void Start()
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    public void Update()
+    private void Update()
     {
         
     }
