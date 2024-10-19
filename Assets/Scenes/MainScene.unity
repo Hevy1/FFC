@@ -598,6 +598,10 @@ PrefabInstance:
       propertyPath: movementSound
       value: 
       objectReference: {fileID: 597633382}
+    - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: translation_speed
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

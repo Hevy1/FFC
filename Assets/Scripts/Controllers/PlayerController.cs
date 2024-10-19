@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         _canMove = false;
         PlayerManager.RespawnPlayer();
+        _movement.CancelMovement();
         
         // Jouer le son de collision
         if (collisionAudioSource != null)
