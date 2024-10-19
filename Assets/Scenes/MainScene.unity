@@ -647,6 +647,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.92
       objectReference: {fileID: 0}
@@ -686,6 +698,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7218720091212387612, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: collisionAudioSource
       value: 
@@ -695,9 +711,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: gravity_speed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: movementSound
       value: 
       objectReference: {fileID: 597633382}
+    - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: rotation_speed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: translation_speed
       value: 0.05
