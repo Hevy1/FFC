@@ -27,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void CancelMovement()
+    {
+        current_speed = new Vector3();
+        return;
+    }
+
     public void UpdateMovement(List<PlanetController> nearPlanets)
     {
         if (_body == null || nearPlanets == null)

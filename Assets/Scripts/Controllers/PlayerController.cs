@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         _canMove = false;
         PlayerManager.RespawnPlayer();
+        _movement.CancelMovement();
     }
 
     public void InteractWithTrash(TrashController trash)
