@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class TrashController : MonoBehaviour
 {
+    [SerializeField] private List<Sprite> _sprites;
+
+    private SpriteRenderer _renderer = null;
 
     private void Awake()
     {
         if (GetComponent<Collider2D>() == null)
             Debug.LogWarning("Trash collider is null");
+
+        // At awake, choose a sprite randomly
+        _renderer = GetComponent<SpriteRenderer>();
+        if (_renderer != null)
+            _renderer.sprite = RandomSpritePicker(_sprites);
     }
 
     // Putting the responsilility of the collision to the Trash object because the
@@ -24,5 +32,22 @@ public class TrashController : MonoBehaviour
             return;
 
         player.InteractWithTrash(this);
+    }
+
+
+    private Sprite RandomSpritePicker(List<Sprite> sprites)
+    {
+        // Ensure the list is not empty to avoid errors
+        if (sprites == null || sprites.Count == 0)
+        {
+            Debug.LogError("The sprite list is empty!");
+            return null;
+        }
+
+        // Pick a random index between 0 and the length of the list
+        int randomIndex = Random.Range(0, sprites.Count);
+
+        // Return the sprite at the random index
+        return sprites[randomIndex];
     }
 }

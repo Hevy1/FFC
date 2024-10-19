@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3295267539695237426, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
       propertyPath: m_Name
-      value: Trash
+      value: PlayerTrash
       objectReference: {fileID: 0}
     - target: {fileID: 7299797354512526237, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7850045671362529331, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
+      propertyPath: _sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850045671362529331, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
+      propertyPath: _sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1320c554604fff04b8ee57ceb12247f9, type: 3}
+    - target: {fileID: 7850045671362529331, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
+      propertyPath: _sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: ce1dba325aaa4a946953334ce136a8f2, type: 3}
+    - target: {fileID: 7850045671362529331, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
+      propertyPath: _sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 01e9449bd1631674e81c3b9a1545a21c, type: 3}
+    - target: {fileID: 7850045671362529331, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
+      propertyPath: _sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: abdd2f2e686c9ab4696999e5ba2b2f98, type: 3}
+    - target: {fileID: 7850045671362529331, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
+      propertyPath: _sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8eb7dcb2578787248942de7c960a6be9, type: 3}
+    - target: {fileID: 7850045671362529331, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
+      propertyPath: _sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 69546e4c59ca3dd458e72c18147babc3, type: 3}
+    - target: {fileID: 7850045671362529331, guid: 36cbaf4b64c20174b9f11398d477c795, type: 3}
+      propertyPath: _sprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 372dbfa0ef9ace94b9a47495b33811a7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

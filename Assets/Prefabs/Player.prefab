@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraPosition: {fileID: 4810623093135997473}
+  collisionAudioSource: {fileID: 0}
 --- !u!114 &7692740916947324160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c0a7a4cb08140428f7c884052c92e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity_speed: 0.01
+  gravity_speed: 0.001
   translation_speed: 4
   rotation_speed: 80
   _body: {fileID: 8223095638475870151}
@@ -247,7 +248,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.7, y: 2}
   m_Direction: 0
 --- !u!50 &7830764119838524421
 Rigidbody2D:

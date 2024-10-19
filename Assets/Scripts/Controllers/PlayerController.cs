@@ -7,10 +7,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _cameraPosition = null;
     // Référence à l'AudioSource spécifique pour la collision
     [SerializeField] private AudioSource collisionAudioSource;
+    [SerializeField] private AudioSource trashAudioSource;
+
 
     // Fields
     private PlayerMovement _movement = null;
+    private PlayerEnergy _energy = null;
     private List<PlanetController> _nearPlanets = null;
+    private int _score = 0;
 
     private bool _canMove = true;
 
@@ -18,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public PlayerManager PlayerManager { get; set; }
     public Transform CameraPosition { get { return _cameraPosition; } }
     public bool CanMove { set { _canMove = value; } }
+    public bool IsMoving { get; set; }
 
     // Accessors
     public List<PlanetController> GetNearPlanets()
@@ -30,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _movement = GetComponent<PlayerMovement>();
+        _energy = GetComponent<PlayerEnergy>();
         _nearPlanets = new List<PlanetController>();
         _canMove = true;
     }
@@ -92,7 +98,21 @@ public class PlayerController : MonoBehaviour
 
     public void InteractWithTrash(TrashController trash)
     {
+        // Jouer le son de ramassage de trash
+        if (trashAudioSource != null)
+        {
+            trashAudioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Trash AudioSource not assigned in the Inspector.");
+        }
         // TODO EW : Put trash in inventory
+        _score += 1;
+        Destroy(trash.gameObject);
         return;
     }
+
+    public Quaternion ResetRotation(Quaternion rotation)
+        => _movement != null ? _movement.ResetRotation(rotation) : rotation;
 }
