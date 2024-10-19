@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float gravity_speed = 0.001f;
-    [SerializeField] private float translation_speed = 0.005f;
+    [SerializeField] private float gravity_speed = 0.0005f;
+    [SerializeField] private float translation_speed = 0.02f;
     [SerializeField] private float rotation_speed = 80.0f;
 
     // Rotation is only on the body GameObject
@@ -81,8 +81,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Clamp the current speed 
-            current_speed = Vector3.ClampMagnitude(current_speed, maxSpeed);  // Limit the speed to maxSpeed
-
+        current_speed = Vector3.ClampMagnitude(current_speed, maxSpeed);  // Limit the speed to maxSpeed
+        current_speed.z = 0;
 
         // Si une touche est pressée et le son n'est pas déjà en train de jouer, on joue le son
         if (isMoving && !movementSound.isPlaying)

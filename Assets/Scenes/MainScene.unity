@@ -931,7 +931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: gravity_speed
-      value: 0.0005
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: movementSound
@@ -977,7 +977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 130993591744444298, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 130993591744444298, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
       propertyPath: m_LocalRotation.w
