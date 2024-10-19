@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     // Properties
     public PlayerManager PlayerManager { get; set; }
     public Transform CameraPosition { get { return _cameraPosition; } }
+    public bool CanMove { set { _canMove = value; } }
 
     // Accessors
     public List<PlanetController> GetNearPlanets()

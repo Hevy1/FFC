@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9864336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1943375324143113688, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
+  m_PrefabInstance: {fileID: 6399419021634238044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &597633375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7283468198732387713, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
@@ -670,6 +675,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 1077958861870676659, guid: 8d48305245245d94a823700f8bbddbb8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 597633375}
+    - target: {fileID: 1077958861870676659, guid: 8d48305245245d94a823700f8bbddbb8, type: 3}
+      propertyPath: _cameraGO
+      value: 
+      objectReference: {fileID: 2141001064}
+    - target: {fileID: 1077958861870676659, guid: 8d48305245245d94a823700f8bbddbb8, type: 3}
+      propertyPath: _spawnPoint
+      value: 
+      objectReference: {fileID: 9864336}
     - target: {fileID: 6612491964222048327, guid: 8d48305245245d94a823700f8bbddbb8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

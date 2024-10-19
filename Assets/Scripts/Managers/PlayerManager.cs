@@ -46,6 +46,9 @@ public class PlayerManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        if (_player == null || _playerController == null)
+            return;
+
         StartCoroutine(RespawnPlayerCoroutine());
     }
 
@@ -66,6 +69,7 @@ public class PlayerManager : MonoBehaviour
 
         Vector3 oldPos = _player.transform.position;
         _player.transform.position = _spawnPoint.transform.position;
+        _playerController.CanMove = true;
 
         GameObject playerTrash = Instantiate(_trashPrefab);
         if (playerTrash == null)
