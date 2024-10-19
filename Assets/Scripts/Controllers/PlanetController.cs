@@ -8,8 +8,6 @@ public class PlanetController : MonoBehaviour
     [SerializeField] private float _planetRadius = 1.0f;
     [SerializeField] private float _planetColliderRadius = 5.0f;
 
-    private Collider2D _planetCollider = null;
-
     // Accessors
     public float GetWeight()
     {
@@ -20,13 +18,37 @@ public class PlanetController : MonoBehaviour
     {
         transform.localScale = Vector3.one * _planetRadius;
 
-        _planetCollider = GetComponent<Collider2D>();
-        if (_planetCollider == null)
-            Debug.Log("Collider is null");
+        if (GetComponent<Collider2D>() == null)
+            Debug.LogWarning("Planet collider is null");
     }
 
-    private void Update()
+    // Putting the responsilility of the collision to the Planet because the
+    // player can also collide with Trash objects
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision == null)
+            return;
+
+        // Controller is in the parent of the collider GameObject
+        PlayerController player = collision.GetComponentInParent<PlayerController>();
+        if (player == null)
+            return;
+
+        player.AddNearPlanet(this);
     }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision == null)
+            return;
+
+        // Controller is in the parent of the collider GameObject
+        PlayerController player = collision.GetComponentInParent<PlayerController>();
+        if (player == null)
+            return;
+
+        player.RemoveNearPlanet(this);
+    }
+
 }
