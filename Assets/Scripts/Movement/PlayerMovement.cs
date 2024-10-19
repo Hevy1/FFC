@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float gravity_speed = 0.01f;
-    [SerializeField] private float translation_speed = 0.05f;
+    [SerializeField] private float gravity_speed = 0.001f;
+    [SerializeField] private float translation_speed = 0.005f;
     [SerializeField] private float rotation_speed = 80.0f;
 
     // Rotation is only on the body GameObject
     [SerializeField] private GameObject _body = null;
+    [SerializeField] private float maxSpeed = 0.1f;
+
 
     private Vector3 rotation_delta;
     private Vector3 translation_delta;
@@ -71,9 +73,16 @@ public class PlayerMovement : MonoBehaviour
             isMoving = true;
         }
         if (Input.GetKey(KeyCode.DownArrow)){
-			current_speed -= translation_delta;
-            isMoving = true; 
+            // Apply strong braking with Time.deltaTime for frame-rate independence
+            float brakeFactor = 0.65f; // Make this smaller for stronger braking (adjust if needed)
+            float brakeMultiplier = Mathf.Pow(brakeFactor, Time.deltaTime * 10f); // 10x multiplier for stronger braking
+            current_speed *= brakeMultiplier; // Stronger and frame-rate independent braking
+            isMoving = true;
         }
+
+        // Clamp the current speed 
+            current_speed = Vector3.ClampMagnitude(current_speed, maxSpeed);  // Limit the speed to maxSpeed
+
 
         // Si une touche est pressée et le son n'est pas déjà en train de jouer, on joue le son
         if (isMoving && !movementSound.isPlaying)

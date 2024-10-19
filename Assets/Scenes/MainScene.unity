@@ -895,8 +895,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: maxSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: gravity_speed
-      value: 0
+      value: 0.0005
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: movementSound
@@ -908,7 +912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: translation_speed
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
