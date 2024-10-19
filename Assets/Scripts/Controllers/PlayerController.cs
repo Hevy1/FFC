@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement _movement = null;
     private PlayerEnergy _energy = null;
     private List<PlanetController> _nearPlanets = null;
+    private int _score = 0;
 
     private bool _canMove = true;
 
@@ -107,6 +108,8 @@ public class PlayerController : MonoBehaviour
             Debug.LogWarning("Trash AudioSource not assigned in the Inspector.");
         }
         // TODO EW : Put trash in inventory
+        _score += 1;
+        Destroy(trash.gameObject);
         return;
     }
 
