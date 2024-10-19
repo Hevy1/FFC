@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Rotation is only on the body GameObject
     [SerializeField] private GameObject _body = null;
+    [SerializeField] private Transform _tail = null;
     [SerializeField] private float maxSpeed = 0.1f;
 
 
@@ -22,11 +23,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        if (_body == null)
+        if (_body == null || _tail == null)
         {
-            Debug.LogWarning("Please fill in 'Body' field");
+            Debug.LogWarning("Please fill in 'Body' and 'Tail' field");
             return;
         }
+        SetTailPosition();
+        Debug.Log("player_body = "+transform.position);
+        Debug.Log("player_tail = "+_tail.position);
     }
 
     public void CancelMovement()
@@ -37,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void UpdateMovement(List<PlanetController> nearPlanets)
     {
-        if (_body == null || nearPlanets == null)
+        if (_body == null || _tail == null || nearPlanets == null)
             return;
 
         bool isMoving = false; // Pour savoir si le joueur est en train de bouger
@@ -96,6 +100,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.position += current_speed;
+        SetTailPosition();
+    }
+
+    private void SetTailPosition()
+    {
+        if (_body == null || _tail == null)
+            return;
+
+        _tail.SetPositionAndRotation(_body.transform.position - 1.3f * _body.transform.up, _body.transform.rotation);
     }
 
     public Quaternion ResetRotation(Quaternion rotation)
@@ -103,5 +116,10 @@ public class PlayerMovement : MonoBehaviour
         Quaternion oldRot = _body.transform.rotation;
         _body.transform.rotation = rotation;
         return oldRot;
+    }
+
+    public Transform GetTail()
+    {
+        return _tail;
     }
 }

@@ -10,9 +10,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject _map = null;
 
     [SerializeField] private GameObject _trashPrefab = null;
+    [SerializeField] private GameObject _wagonPrefab = null;
     [SerializeField] private float _respawnDelay = 1.0f;
 
     private PlayerController _playerController = null;
+    private PlayerMovement _playerMovement = null;
 
     private void Awake()
     {
@@ -83,5 +85,19 @@ public class PlayerManager : MonoBehaviour
 
         playerTrash.transform.position = oldPos;
         playerTrash.transform.rotation = oldRot;
+    }
+
+    public void NewWagon()
+    {
+        _playerMovement = _player.GetComponent<PlayerMovement>();
+        if (_playerMovement == null)
+        {
+            Debug.LogError("PlayerMovement couldn't be found");
+            return;
+        }
+        GameObject first_wagon = Instantiate(_wagonPrefab);
+        WagonMovement truc = first_wagon.GetComponent<WagonMovement>();
+        truc.Following_tail = _playerMovement.GetTail();
+        truc.Spawn();
     }
 }
