@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform _cameraPosition = null;
+    // Référence à l'AudioSource spécifique pour la collision
+    [SerializeField] private AudioSource collisionAudioSource;
 
     // Fields
     private PlayerMovement _movement = null;
@@ -75,6 +77,16 @@ public class PlayerController : MonoBehaviour
     {
         _canMove = false;
         PlayerManager.RespawnPlayer();
+        
+        // Jouer le son de collision
+        if (collisionAudioSource != null)
+        {
+            collisionAudioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Collision AudioSource not assigned in the Inspector.");
+        }
     }
 
     public void InteractWithTrash(TrashController trash)
