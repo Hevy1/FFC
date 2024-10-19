@@ -7,7 +7,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _cameraPosition = null;
 
     // Fields
+    private PlayerMovement _movement = null;
     private List<PlanetController> _nearPlanets = null;
+
+    private bool _canMove = true;
 
     // Properties
     public PlayerManager PlayerManager { get; set; }
@@ -23,12 +26,18 @@ public class PlayerController : MonoBehaviour
     // Unity Interface
     private void Awake()
     {
+        _movement = GetComponent<PlayerMovement>();
         _nearPlanets = new List<PlanetController>();
+        _canMove = true;
     }
 
     private void Update()
     {
+        if (_movement == null)
+            return;
 
+        if (_canMove)
+            _movement.UpdateMovement(_nearPlanets);
     }
 
     public void AddNearPlanet(PlanetController planet)
@@ -59,6 +68,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Trying to remove " + planet.name
                 + " planet that was already removed");
         }
+    }
+
+    public void CollideWithPlanet(PlanetController planet)
+    {
+        _canMove = false;
+        PlayerManager.RespawnPlayer();
     }
 
     public void InteractWithTrash(TrashController trash)

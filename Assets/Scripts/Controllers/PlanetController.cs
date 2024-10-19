@@ -34,21 +34,6 @@ public class PlanetController : MonoBehaviour
         if (player == null)
             return;
 
-        player.AddNearPlanet(this);
+        player.CollideWithPlanet(this);
     }
-
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision == null)
-            return;
-
-        // Controller is in the parent of the collider GameObject
-        PlayerController player = collision.GetComponentInParent<PlayerController>();
-        if (player == null)
-            return;
-
-        player.RemoveNearPlanet(this);
-    }
-
 }

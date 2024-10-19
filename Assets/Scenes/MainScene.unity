@@ -219,6 +219,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1373667030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1373667031}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1373667031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373667030}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.765991, y: 2.3254037, z: 0.71730703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1917020312
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +458,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
+--- !u!1 &6399419021634238045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1943375324143113688, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
+  m_PrefabInstance: {fileID: 6399419021634238044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8891985748745076154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -440,9 +476,17 @@ PrefabInstance:
       value: Managers
       objectReference: {fileID: 0}
     - target: {fileID: 1077958861870676659, guid: 8d48305245245d94a823700f8bbddbb8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 430613336}
+    - target: {fileID: 1077958861870676659, guid: 8d48305245245d94a823700f8bbddbb8, type: 3}
       propertyPath: _cameraGO
       value: 
       objectReference: {fileID: 552672806}
+    - target: {fileID: 1077958861870676659, guid: 8d48305245245d94a823700f8bbddbb8, type: 3}
+      propertyPath: _spawnPoint
+      value: 
+      objectReference: {fileID: 6399419021634238045}
     - target: {fileID: 1077958861870676659, guid: 8d48305245245d94a823700f8bbddbb8, type: 3}
       propertyPath: _playerPrefab
       value: 
@@ -501,3 +545,4 @@ SceneRoots:
   - {fileID: 8891985748745076154}
   - {fileID: 6399419021634238044}
   - {fileID: 552672809}
+  - {fileID: 1373667031}

@@ -4,35 +4,32 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _playerPrefab = null;
+    [SerializeField] private GameObject _spawnPoint = null;
+    [SerializeField] private GameObject _player = null;
     [SerializeField] private GameObject _cameraGO = null;
 
+    [SerializeField] private GameObject _trashPrefab = null;
+    [SerializeField] private float _respawnDelay = 1.0f;
 
-    private GameObject _playerInstance = null;
-    private PlayerController _player = null;
+    private PlayerController _playerController = null;
 
     private void Awake()
     {
-        // For now, player instance is the _playerPrefab,
-        // later it should be instantiated manually
-        _playerInstance = _playerPrefab;
-        // _playerInstance = Instantiate(_playerPrefab);
-
-        if (_playerInstance == null)
+        if (_player == null)
         {
             Debug.LogError("Player couldn't be found");
             return;
         }
 
-        _player = _playerInstance.GetComponent<PlayerController>();
-        if (_player == null)
+        _playerController = _player.GetComponent<PlayerController>();
+        if (_playerController == null)
         {
             Debug.LogError("PlayerController couldn't be found");
             return;
         }
 
-        _player.PlayerManager = this;
-
+        _playerController.PlayerManager = this;
+        _playerController.transform.position = _spawnPoint.transform.position;
 
         // TEMP EW : camera is currently set manually, will change with scene changes
         SetCamera(_cameraGO);
@@ -41,9 +38,39 @@ public class PlayerManager : MonoBehaviour
     // Public Methods
     public void SetCamera(GameObject cameraGO)
     {
-        if (cameraGO == null || _player == null || _player.CameraPosition == null)
+        if (cameraGO == null || _playerController == null || _playerController.CameraPosition == null)
             return;
 
-        cameraGO.transform.SetParent(_player.CameraPosition);
+        cameraGO.transform.SetParent(_playerController.CameraPosition);
+    }
+
+    public void RespawnPlayer()
+    {
+        StartCoroutine(RespawnPlayerCoroutine());
+    }
+
+    public IEnumerator RespawnPlayerCoroutine()
+    {
+        // Not destroying old player, just creating a trash at player place
+        // and teleporting player to spawn
+        if (_trashPrefab == null)
+        {
+            Debug.LogWarning("No Trash prefab found");
+            yield break;
+        }
+
+
+        // Waiting a short time to let the player understand they died
+        yield return new WaitForSeconds(_respawnDelay);
+
+
+        Vector3 oldPos = _player.transform.position;
+        _player.transform.position = _spawnPoint.transform.position;
+
+        GameObject playerTrash = Instantiate(_trashPrefab);
+        if (playerTrash == null)
+            yield break;
+
+        playerTrash.transform.position = oldPos;
     }
 }

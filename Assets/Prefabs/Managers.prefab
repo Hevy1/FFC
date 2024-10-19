@@ -44,4 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef495b8cd014184299db23efa4bf53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 0}
+  _spawnPoint: {fileID: 0}
+  _player: {fileID: 0}
+  _cameraGO: {fileID: 0}
+  _trashPrefab: {fileID: 6786868083026706203, guid: 153ee6e8a98efac4a8c8169523e05112, type: 3}
+  _respawnDelay: 1
