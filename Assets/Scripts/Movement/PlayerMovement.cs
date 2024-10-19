@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 planet_position = planet.transform.position;
             float dist_planet = Vector3.Distance(planet_position, transform.position);
-            float gravity = gravity_speed * planet.GetWeight() / Mathf.Pow(dist_planet, 3);
+            float gravity = gravity_speed * planet.GetWeight() / Mathf.Pow(dist_planet, 2);
             Vector3 direction = (planet_position - transform.position).normalized;
             current_speed += gravity * direction;
         }

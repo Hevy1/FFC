@@ -648,15 +648,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.39
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: gravity_speed
-      value: 0.01
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: movementSound
@@ -788,6 +788,22 @@ PrefabInstance:
     - target: {fileID: 2921834580980859636, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585835859189630155, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585835859189630155, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001655564622487919, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001655564622487919, guid: 04d67e295f1f4ec45896265bd19a819a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

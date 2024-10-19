@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c0a7a4cb08140428f7c884052c92e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity_speed: 0.01
+  gravity_speed: 0.001
   translation_speed: 4
   rotation_speed: 80
   _body: {fileID: 8223095638475870151}
