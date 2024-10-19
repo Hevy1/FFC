@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _cameraPosition = null;
     // Référence à l'AudioSource spécifique pour la collision
     [SerializeField] private AudioSource collisionAudioSource;
+    [SerializeField] private AudioSource trashAudioSource;
+
 
     // Fields
     private PlayerMovement _movement = null;
@@ -92,6 +94,15 @@ public class PlayerController : MonoBehaviour
 
     public void InteractWithTrash(TrashController trash)
     {
+        // Jouer le son de ramassage de trash
+        if (trashAudioSource != null)
+        {
+            trashAudioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Trash AudioSource not assigned in the Inspector.");
+        }
         // TODO EW : Put trash in inventory
         return;
     }
