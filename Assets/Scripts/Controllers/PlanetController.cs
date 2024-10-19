@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlanetController : MonoBehaviour
 {
     [SerializeField] private float _planetWeight = 1.0f;
-    [SerializeField] private float _planetRadius = 1.0f;
-    [SerializeField] private float _planetColliderRadius = 5.0f;
 
     // Accessors
     public float GetWeight()
@@ -16,8 +14,6 @@ public class PlanetController : MonoBehaviour
 
     private void Awake()
     {
-        transform.localScale = Vector3.one * _planetRadius;
-
         if (GetComponent<Collider2D>() == null)
             Debug.LogWarning("Planet collider is null");
     }
