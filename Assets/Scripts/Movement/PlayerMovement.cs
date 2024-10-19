@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 current_speed;
     private Quaternion new_rotation;
 
+    public AudioSource movementSound; // Référence à l'AudioSource pour le son de mouvement
+
     private void Awake()
     {
         if (_body == null)
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         if (_body == null || nearPlanets == null)
             return;
 
+        bool isMoving = false; // Pour savoir si le joueur est en train de bouger
         rotation_delta = rotation_speed * Time.deltaTime * Vector3.forward;
 
         // Moving forward considering the current rotation of the body
@@ -57,13 +60,24 @@ public class PlayerMovement : MonoBehaviour
             new_rotation.eulerAngles = _body.transform.rotation.eulerAngles + rotation_delta;
             _body.transform.rotation = new_rotation;
         }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            current_speed += translation_delta;
+        if (Input.GetKey(KeyCode.UpArrow)){
+			current_speed += translation_delta;
+            isMoving = true;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow)){
+			current_speed -= translation_delta;
+            isMoving = true; 
+        }
+
+        // Si une touche est pressée et le son n'est pas déjà en train de jouer, on joue le son
+        if (isMoving && !movementSound.isPlaying)
         {
-            current_speed -= translation_delta;
+            movementSound.Play();
+        }
+        // Si aucune touche n'est pressée et le son est en train de jouer, on met en pause le son
+        else if (!isMoving && movementSound.isPlaying)
+        {
+            movementSound.Pause();
         }
 
         transform.position += current_speed;
