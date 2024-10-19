@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PlanetController : MonoBehaviour
 {
+    [SerializeField] private float _planetWeight = 1.0f;
     [SerializeField] private float _planetRadius = 1.0f;
     [SerializeField] private float _planetColliderRadius = 5.0f;
 
     private Collider2D _planetCollider = null;
+
+    // Accessors
+    public float GetWeight()
+    {
+        return _planetWeight;
+    }
 
     private void Awake()
     {

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private List<PlanetController> _nearPlanets = null;
 
     // Accessors
-    public List<PlanetController> GetNearPLanets()
+    public List<PlanetController> GetNearPlanets()
     {
         return _nearPlanets;
     }
