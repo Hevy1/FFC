@@ -12,6 +12,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        // Update la liste des joueurs ? / Laisser les joueurs s'update eux mêmes ?
+        // Update la liste des joueurs ? / Laisser les joueurs s'update eux mï¿½mes ?
     }
 }
