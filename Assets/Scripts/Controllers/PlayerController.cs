@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     // Fields
     private PlayerMovement _movement = null;
+    private PlayerEnergy _energy = null;
     private List<PlanetController> _nearPlanets = null;
 
     private bool _canMove = true;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public PlayerManager PlayerManager { get; set; }
     public Transform CameraPosition { get { return _cameraPosition; } }
     public bool CanMove { set { _canMove = value; } }
+    public bool IsMoving { get; set; }
 
     // Accessors
     public List<PlanetController> GetNearPlanets()
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _movement = GetComponent<PlayerMovement>();
+        _energy = GetComponent<PlayerEnergy>();
         _nearPlanets = new List<PlanetController>();
         _canMove = true;
     }
@@ -106,4 +109,7 @@ public class PlayerController : MonoBehaviour
         // TODO EW : Put trash in inventory
         return;
     }
+
+    public Quaternion ResetRotation(Quaternion rotation)
+        => _movement != null ? _movement.ResetRotation(rotation) : rotation;
 }

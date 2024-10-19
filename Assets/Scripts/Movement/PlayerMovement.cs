@@ -97,4 +97,11 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position += current_speed;
     }
+
+    public Quaternion ResetRotation(Quaternion rotation)
+    {
+        Quaternion oldRot = _body.transform.rotation;
+        _body.transform.rotation = rotation;
+        return oldRot;
+    }
 }
