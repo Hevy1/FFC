@@ -67,7 +67,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 3
 --- !u!114 &6132800527856194223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,8 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _planetWeight: 1
-  _planetRadius: 1
-  _planetColliderRadius: 5
 --- !u!58 &4542874560107990622
 CircleCollider2D:
   m_ObjectHideFlags: 0
