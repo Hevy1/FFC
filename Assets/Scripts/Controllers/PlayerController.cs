@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
 {
@@ -110,6 +111,10 @@ public class PlayerController : MonoBehaviour
         // TODO EW : Put trash in inventory
         _score += 1;
         Destroy(trash.gameObject);
+        if (_score > 0 && _score % 3 == 0)
+        {
+            PlayerManager.NewWagon();
+        }
         return;
     }
 

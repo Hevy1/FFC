@@ -117,4 +117,9 @@ public class PlayerMovement : MonoBehaviour
         _body.transform.rotation = rotation;
         return oldRot;
     }
+
+    public Transform GetTail()
+    {
+        return _tail;
+    }
 }

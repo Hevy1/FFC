@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25cacf797ba8bd4291312fdf2c345e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _following_tail: {fileID: 0}
-  _own_tail: {fileID: 0}
-  min_dist: 0.1
+  _head: {fileID: 6147037388959884552}
+  _own_tail: {fileID: 2445342227640724772}
+  _min_dist: 0.1
   _max_dist: 1
 --- !u!1 &2874646155639399544
 GameObject:

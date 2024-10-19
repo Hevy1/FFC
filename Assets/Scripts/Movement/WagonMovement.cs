@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WagonMovement : MonoBehaviour
 {
-    [SerializeField] private Transform _following_tail = null;
     [SerializeField] private Transform _head = null;
     [SerializeField] private Transform _own_tail = null;
     [SerializeField] private float _min_dist = 0.1f;
@@ -13,9 +12,13 @@ public class WagonMovement : MonoBehaviour
     private Vector3 rotation_delta;
     private Vector3 translation_delta;
 
-    private void Awake()
+    public Transform Following_tail {get; set;}
+    
+    public void Awake() {}
+
+    public void Spawn()
     {
-        if (_following_tail == null || _head == null || _own_tail == null)
+        if (Following_tail == null || _head == null || _own_tail == null)
             return;
 
         SetHeadPosition();
@@ -25,7 +28,7 @@ public class WagonMovement : MonoBehaviour
 
     private void Update()
     {
-        if (_following_tail == null || _head == null || _own_tail == null)
+        if (Following_tail == null || _head == null || _own_tail == null)
             return;
 
         //Debug.Log("tail_pos = "+_following_tail.position);
@@ -56,8 +59,8 @@ public class WagonMovement : MonoBehaviour
     
     private void SetHeadPosition()
     {
-        _head.SetPositionAndRotation(_following_tail.position + 0.3f * _following_tail.up, _following_tail.rotation);
-        Debug.Log("tail = "+_following_tail.position);
+        _head.SetPositionAndRotation(Following_tail.position + 0.3f * Following_tail.up, Following_tail.rotation);
+        Debug.Log("tail = "+Following_tail.position);
         Debug.Log("head = "+_head.position);
     }
     
