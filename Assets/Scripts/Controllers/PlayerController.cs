@@ -155,6 +155,24 @@ public class PlayerController : MonoBehaviour
 
     public void DepositTrash()
     {
+        _score += _TotalCargo * 2;
+
+        // Parcourir et détruire chaque wagon
+        if (_wagonList != null && _wagonList.Count > 0)
+        {
+            foreach (WagonController wagon in _wagonList)
+            {
+                if (wagon != null)
+                {
+                    // Détruire le GameObject associé au wagon
+                    Destroy(wagon.gameObject);
+                }
+            }
+            // Vider la liste des wagons
+            _wagonList.Clear();
+            _lastWagon = null;
+            _TotalCargo = 0;
+        }
 
     }
 
