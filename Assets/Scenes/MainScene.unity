@@ -8739,8 +8739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cceff5bdf02f9554eb0ab0c02e018b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSprite: {fileID: 0}
-  brakeSprite: {fileID: 0}
+  normalSprite: {fileID: 21300000, guid: c284863eae1f48a4eacc2f8c1c2f0351, type: 3}
+  brakeSprite: {fileID: 21300000, guid: a1bf576a3641ff948b23ce60d9c0c707, type: 3}
 --- !u!212 &1919930189
 SpriteRenderer:
   m_ObjectHideFlags: 0
