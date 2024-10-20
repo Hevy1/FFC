@@ -27,15 +27,15 @@ public class WagonController : MonoBehaviour
 
         _cargo += 1;
         int index = 3;
-        if (_cargo / _capacity_max < 0.33f)
+        if ( (float)_cargo / _capacity_max < 0.33f)
         {
             index = 0;
         }
-        else if (_cargo / _capacity_max < 0.66f)
+        else if ((float)_cargo / _capacity_max < 0.66f)
         {
             index = 1;
         }
-        else if (_cargo / _capacity_max < 0.99f)
+        else if ((float)_cargo / _capacity_max < 0.99f)
         {
             index = 2;
         }
