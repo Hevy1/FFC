@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private List<PlanetController> _nearPlanets = null;
     private WagonController _lastWagon = null;
     private int _score = 0;
+    private int _TotalCargo = 0;
+    private List<WagonController> _wagonList = null;
+
 
     private bool _canMove = true;
 
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
         _movement = GetComponent<PlayerMovement>();
         _energy = GetComponent<PlayerEnergy>();
         _nearPlanets = new List<PlanetController>();
+        _wagonList = new List<WagonController>();
         _canMove = true;
     }
 
@@ -93,7 +97,24 @@ public class PlayerController : MonoBehaviour
         _canMove = false;
         PlayerManager.RespawnPlayer();
         _movement.CancelMovement();
-        
+
+        // Parcourir et détruire chaque wagon
+        if (_wagonList != null && _wagonList.Count > 0)
+        {
+            foreach (WagonController wagon in _wagonList)
+            {
+                if (wagon != null)
+                {
+                    // Détruire le GameObject associé au wagon
+                    Destroy(wagon.gameObject);
+                }
+            }
+            // Vider la liste des wagons
+            _wagonList.Clear();
+            _lastWagon = null;
+            _TotalCargo = 0;
+        }
+
         // Jouer le son de collision
         if (collisionAudioSource != null)
         {
@@ -118,10 +139,12 @@ public class PlayerController : MonoBehaviour
         }
         // TODO EW : Put trash in inventory
         _score += 1;
+        _TotalCargo += 1;
         Destroy(trash.gameObject);
-        if (_score % 4 == 1)
+        if (_TotalCargo % 4 == 1)
         {
             _lastWagon = PlayerManager.NewWagon();
+            _wagonList.Add(_lastWagon);
         }
         else
         {
