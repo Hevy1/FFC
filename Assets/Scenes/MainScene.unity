@@ -10137,6 +10137,14 @@ PrefabInstance:
       propertyPath: _slider
       value: 
       objectReference: {fileID: 1729688849}
+    - target: {fileID: 1581612975995905341, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: _deplationRatio
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581612975995905341, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      propertyPath: energyAudioSource
+      value: 
+      objectReference: {fileID: 597633396}
     - target: {fileID: 1845270519784697472, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.21
@@ -10266,6 +10274,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7283468198732387713, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 597633391}
+    - targetCorrespondingSourceObject: {fileID: 7283468198732387713, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 597633396}
   m_SourcePrefab: {fileID: 100100000, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
 --- !u!1001 &6399419021634238044
 PrefabInstance:

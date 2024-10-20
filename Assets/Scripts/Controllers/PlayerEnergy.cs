@@ -9,6 +9,8 @@ public class PlayerEnergy : MonoBehaviour
     [SerializeField] private float _deplationRatio = 1.0f;
     [SerializeField] private Slider _slider = null;
 
+    [SerializeField] private AudioSource energyAudioSource;
+
     private float _currentEnergy = 0.0f;
 
     private void Awake()
@@ -28,6 +30,14 @@ public class PlayerEnergy : MonoBehaviour
     {
         // Taking Time.deltaTime to avoid depending on Update rate
         _currentEnergy -= _deplationRatio * Time.deltaTime;
+
+        if(_currentEnergy < _maxEnergy/4 && !energyAudioSource.isPlaying){
+            energyAudioSource.Play();
+        }
+
+        if(_currentEnergy > _maxEnergy/4 && energyAudioSource.isPlaying){
+            energyAudioSource.Pause();
+        }
 
         if (_currentEnergy < 0)
         {
