@@ -16,8 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 rotation_delta;
     private Vector3 translation_delta;
-    private Vector3 current_speed;
+    public Vector3 current_speed;
     private Quaternion new_rotation;
+
+    public bool IsMoving { get; private set; }
 
     public AudioSource movementSound; // Référence à l'AudioSource pour le son de mouvement
 
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public void CancelMovement()
     {
         current_speed = new Vector3();
+        IsMoving = false;
         return;
     }
 
@@ -44,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
         if (_body == null || _tail == null || nearPlanets == null)
             return;
 
-        bool isMoving = false; // Pour savoir si le joueur est en train de bouger
         rotation_delta = rotation_speed * Time.deltaTime * Vector3.forward;
 
         // Moving forward considering the current rotation of the body
@@ -72,16 +74,22 @@ public class PlayerMovement : MonoBehaviour
             new_rotation.eulerAngles = _body.transform.rotation.eulerAngles + rotation_delta;
             _body.transform.rotation = new_rotation;
         }
+
+
         if (Input.GetKey(KeyCode.UpArrow)){
 			current_speed += translation_delta;
-            isMoving = true;
+            IsMoving = true;
         }
-        if (Input.GetKey(KeyCode.DownArrow)){
+        else if (Input.GetKey(KeyCode.DownArrow)){
             // Apply strong braking with Time.deltaTime for frame-rate independence
             float brakeFactor = 0.65f; // Make this smaller for stronger braking (adjust if needed)
             float brakeMultiplier = Mathf.Pow(brakeFactor, Time.deltaTime * 10f); // 10x multiplier for stronger braking
             current_speed *= brakeMultiplier; // Stronger and frame-rate independent braking
-            isMoving = true;
+            IsMoving = true;
+        }
+        else
+        {
+            IsMoving = false;
         }
 
         // Clamp the current speed 
@@ -89,12 +97,12 @@ public class PlayerMovement : MonoBehaviour
         current_speed.z = 0;
 
         // Si une touche est pressée et le son n'est pas déjà en train de jouer, on joue le son
-        if (isMoving && !movementSound.isPlaying)
+        if (IsMoving && !movementSound.isPlaying)
         {
             movementSound.Play();
         }
         // Si aucune touche n'est pressée et le son est en train de jouer, on met en pause le son
-        else if (!isMoving && movementSound.isPlaying)
+        else if (!IsMoving && movementSound.isPlaying)
         {
             movementSound.Pause();
         }

@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private List<PlanetController> _nearPlanets = null;
     private WagonController _lastWagon = null;
     private int _score = 0;
+    private int _TotalCargo = 0;
+    private List<WagonController> _wagonList = null;
+
 
     private bool _canMove = true;
 
@@ -24,7 +27,6 @@ public class PlayerController : MonoBehaviour
     public PlayerManager PlayerManager { get; set; }
     public Transform CameraPosition { get { return _cameraPosition; } }
     public bool CanMove { set { _canMove = value; } }
-    public bool IsMoving { get; set; }
 
     // Accessors
     public List<PlanetController> GetNearPlanets()
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
         _movement = GetComponent<PlayerMovement>();
         _energy = GetComponent<PlayerEnergy>();
         _nearPlanets = new List<PlanetController>();
+        _wagonList = new List<WagonController>();
         _canMove = true;
     }
 
@@ -49,6 +52,14 @@ public class PlayerController : MonoBehaviour
 
         if (_canMove)
             _movement.UpdateMovement(_nearPlanets);
+
+        // Deplete energy only if player is moving
+        if (_movement.IsMoving && _energy != null)
+        {
+            if (_energy.UpdateEnergy())
+                PlayerDeath();
+        }
+
     }
 
     public void AddNearPlanet(PlanetController planet)
@@ -81,12 +92,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CollideWithPlanet(PlanetController planet)
+    public void PlayerDeath()
     {
         _canMove = false;
         PlayerManager.RespawnPlayer();
         _movement.CancelMovement();
-        
+
+        // Parcourir et détruire chaque wagon
+        if (_wagonList != null && _wagonList.Count > 0)
+        {
+            foreach (WagonController wagon in _wagonList)
+            {
+                if (wagon != null)
+                {
+                    // Détruire le GameObject associé au wagon
+                    Destroy(wagon.gameObject);
+                }
+            }
+            // Vider la liste des wagons
+            _wagonList.Clear();
+            _lastWagon = null;
+            _TotalCargo = 0;
+        }
+
         // Jouer le son de collision
         if (collisionAudioSource != null)
         {
@@ -111,10 +139,12 @@ public class PlayerController : MonoBehaviour
         }
         // TODO EW : Put trash in inventory
         _score += 1;
+        _TotalCargo += 1;
         Destroy(trash.gameObject);
-        if (_score % 4 == 1)
+        if (_TotalCargo % 4 == 1)
         {
             _lastWagon = PlayerManager.NewWagon();
+            _wagonList.Add(_lastWagon);
         }
         else
         {
@@ -125,4 +155,6 @@ public class PlayerController : MonoBehaviour
 
     public Quaternion ResetRotation(Quaternion rotation)
         => _movement != null ? _movement.ResetRotation(rotation) : rotation;
+
+    public void ResetEnergy() => _energy?.ResetEnergy();
 }

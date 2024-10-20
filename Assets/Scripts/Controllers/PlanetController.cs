@@ -40,7 +40,7 @@ public class PlanetController : MonoBehaviour
         if (player == null)
             return;
 
-        player.CollideWithPlanet(this);
+        player.PlayerDeath();
     }
 
 
