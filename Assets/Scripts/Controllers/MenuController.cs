@@ -8,6 +8,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
+    public void CreditDisplay()
+    {
+        SceneManager.LoadScene("CreditScene");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
