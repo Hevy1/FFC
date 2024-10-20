@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource collisionAudioSource;
     [SerializeField] private AudioSource trashAudioSource;
     [SerializeField] private AudioSource depositAudioSource;
+    [SerializeField] private TMP_Text _text = null;
 
 
     // Fields
@@ -140,6 +142,7 @@ public class PlayerController : MonoBehaviour
         }
         // TODO EW : Put trash in inventory
         _score += 1;
+        UpdateScore();
         _TotalCargo += 1;
         Destroy(trash.gameObject);
         if (_TotalCargo % 4 == 1)
@@ -157,6 +160,7 @@ public class PlayerController : MonoBehaviour
     public void DepositTrash()
     {
         _score += _TotalCargo * 2;
+        UpdateScore();
 
         // Parcourir et détruire chaque wagon
         if (_wagonList != null && _wagonList.Count > 0)
@@ -178,6 +182,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+
+    private void UpdateScore()
+    {
+        if (_text == null)
+            return;
+
+        _text.text = "Score : " + _score;
     }
 
     public Quaternion ResetRotation(Quaternion rotation)
