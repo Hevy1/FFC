@@ -27,7 +27,7 @@ public class PlayerEnergy : MonoBehaviour
         }
 
         if (_text != null)
-            _text.text = _currentEnergy + " / " + _maxEnergy;
+            _text.text = "Energie : " + _currentEnergy + " / " + _maxEnergy;
     }
 
     public void ResetEnergy()
@@ -62,7 +62,7 @@ public class PlayerEnergy : MonoBehaviour
                 _slider.value = _currentEnergy;
 
             if (_text != null)
-                _text.text = (int)_currentEnergy + " / " + _maxEnergy;
+                _text.text = "Energie : " + (int)_currentEnergy + " / " + _maxEnergy;
 
             return false;
         }
