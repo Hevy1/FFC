@@ -31,11 +31,11 @@ public class PlayerEnergy : MonoBehaviour
         // Taking Time.deltaTime to avoid depending on Update rate
         _currentEnergy -= _deplationRatio * Time.deltaTime;
 
-        if(_currentEnergy < 50 && !energyAudioSource.isPlaying){
+        if(_currentEnergy < _maxEnergy/4 && !energyAudioSource.isPlaying){
             energyAudioSource.Play();
         }
 
-        if(_currentEnergy > 50 && energyAudioSource.isPlaying){
+        if(_currentEnergy > _maxEnergy/4 && energyAudioSource.isPlaying){
             energyAudioSource.Pause();
         }
 
