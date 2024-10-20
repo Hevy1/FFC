@@ -161,6 +161,8 @@ public class PlayerController : MonoBehaviour
     {
         _score += _TotalCargo * 2;
         UpdateScore();
+        ResetEnergy();
+        _energy.UpdateEnergy();
 
         // Parcourir et détruire chaque wagon
         if (_wagonList != null && _wagonList.Count > 0)
