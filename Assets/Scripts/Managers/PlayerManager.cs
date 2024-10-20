@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
 
     private PlayerController _playerController = null;
     private PlayerMovement _playerMovement = null;
+    private Transform _lastTail = null;
 
     private void Awake()
     {
@@ -33,6 +34,12 @@ public class PlayerManager : MonoBehaviour
 
         _playerController.PlayerManager = this;
         _playerController.transform.position = _spawnPoint.transform.position;
+        _playerMovement = _player.GetComponent<PlayerMovement>();
+        if (_playerMovement == null)
+        {
+            Debug.LogError("PlayerMovement couldn't be found");
+            return;
+        }
 
         // TEMP EW : camera is currently set manually, will change with scene changes
         SetCamera(_cameraGO);
@@ -87,17 +94,21 @@ public class PlayerManager : MonoBehaviour
         playerTrash.transform.rotation = oldRot;
     }
 
-    public void NewWagon()
+    public WagonController NewWagon()
     {
-        _playerMovement = _player.GetComponent<PlayerMovement>();
-        if (_playerMovement == null)
+        GameObject wagon = Instantiate(_wagonPrefab);
+        WagonMovement wagon_move = wagon.GetComponent<WagonMovement>();
+        WagonController wagon_control = wagon.GetComponent<WagonController>();
+        if (_lastTail == null)
         {
-            Debug.LogError("PlayerMovement couldn't be found");
-            return;
+            wagon_move.Following_tail = _playerMovement.GetTail();
         }
-        GameObject first_wagon = Instantiate(_wagonPrefab);
-        WagonMovement truc = first_wagon.GetComponent<WagonMovement>();
-        truc.Following_tail = _playerMovement.GetTail();
-        truc.Spawn();
+        else
+        {
+            wagon_move.Following_tail = _lastTail;
+        }
+        wagon_move.Spawn();
+        _lastTail = wagon_move.GetTail();
+        return wagon_control;
     }
 }

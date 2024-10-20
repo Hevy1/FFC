@@ -26,6 +26,11 @@ public class WagonMovement : MonoBehaviour
         SetTailPosition();
     }
 
+    public Transform GetTail()
+    {
+        return _own_tail;
+    }
+
     private void Update()
     {
         if (Following_tail == null || _head == null || _own_tail == null)

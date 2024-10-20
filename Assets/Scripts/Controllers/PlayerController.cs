@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement _movement = null;
     private PlayerEnergy _energy = null;
     private List<PlanetController> _nearPlanets = null;
+    private WagonController _lastWagon = null;
     private int _score = 0;
 
     private bool _canMove = true;
@@ -111,9 +112,13 @@ public class PlayerController : MonoBehaviour
         // TODO EW : Put trash in inventory
         _score += 1;
         Destroy(trash.gameObject);
-        if (_score > 0 && _score % 3 == 0)
+        if (_score % 4 == 1)
         {
-            PlayerManager.NewWagon();
+            _lastWagon = PlayerManager.NewWagon();
+        }
+        else
+        {
+            _lastWagon.DrawSprite();
         }
         return;
     }
