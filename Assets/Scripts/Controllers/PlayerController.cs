@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     // Référence à l'AudioSource spécifique pour la collision
     [SerializeField] private AudioSource collisionAudioSource;
     [SerializeField] private AudioSource trashAudioSource;
+    [SerializeField] private AudioSource depositAudioSource;
 
 
     // Fields
@@ -172,6 +173,9 @@ public class PlayerController : MonoBehaviour
             _wagonList.Clear();
             _lastWagon = null;
             _TotalCargo = 0;
+            if(!depositAudioSource.isPlaying){
+                depositAudioSource.Play();
+            }
         }
 
     }
