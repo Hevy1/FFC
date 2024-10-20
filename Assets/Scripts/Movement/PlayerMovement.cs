@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 rotation_delta;
     private Vector3 translation_delta;
-    private Vector3 current_speed;
+    public Vector3 current_speed;
     private Quaternion new_rotation;
 
     public AudioSource movementSound; // Référence à l'AudioSource pour le son de mouvement

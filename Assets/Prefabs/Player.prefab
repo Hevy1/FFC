@@ -131,6 +131,7 @@ MonoBehaviour:
   _body: {fileID: 8223095638475870151}
   _tail: {fileID: 5506984291009839934}
   maxSpeed: 0.1
+  current_speed: {x: 0, y: 0, z: 0}
   movementSound: {fileID: 0}
 --- !u!1 &8223095638475870151
 GameObject:
