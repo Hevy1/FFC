@@ -153,6 +153,11 @@ public class PlayerController : MonoBehaviour
         return;
     }
 
+    public void DepositTrash()
+    {
+
+    }
+
     public Quaternion ResetRotation(Quaternion rotation)
         => _movement != null ? _movement.ResetRotation(rotation) : rotation;
 
