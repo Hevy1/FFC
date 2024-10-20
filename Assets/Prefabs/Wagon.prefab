@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3548345608434186029}
   - component: {fileID: 7038017104234658474}
   - component: {fileID: -1872566559502776079}
+  - component: {fileID: 8706715795697946356}
   m_Layer: 0
   m_Name: Wagon
   m_TagString: Untagged
@@ -103,6 +104,24 @@ MonoBehaviour:
   _own_tail: {fileID: 2445342227640724772}
   _min_dist: 0.1
   _max_dist: 1
+--- !u!114 &8706715795697946356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250137960927174143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9a48d64bc645c4fb4b7e45ab9269d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 736a8c0dedbe8114ea413e6e841415c1, type: 3}
+  - {fileID: 21300000, guid: f46d379a39eb9b94d877e4baa72ff6b7, type: 3}
+  - {fileID: 21300000, guid: b62e114923e446047b35782e5134c071, type: 3}
+  - {fileID: 21300000, guid: bd8b33b5b9c177c48b4f158351d85035, type: 3}
+  _capacity_max: 4
 --- !u!1 &2874646155639399544
 GameObject:
   m_ObjectHideFlags: 0
