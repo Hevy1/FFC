@@ -79,9 +79,12 @@ public class PlayerManager : MonoBehaviour
         // Player position is not at the same z value
         oldPos.z = _map.transform.position.z;
 
-        // CanMove was set to true at the moment of the collision
+        // CanMove was set to false at the moment of the collision
         _playerController.CanMove = true;
         _player.transform.position = _spawnPoint.transform.position;
+
+        // Reset the energy of the player after respawning
+        _playerController.ResetEnergy();
 
         Quaternion oldRot = _playerController.ResetRotation(
             _spawnPoint.transform.rotation);

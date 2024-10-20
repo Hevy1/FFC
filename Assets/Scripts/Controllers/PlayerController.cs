@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     public PlayerManager PlayerManager { get; set; }
     public Transform CameraPosition { get { return _cameraPosition; } }
     public bool CanMove { set { _canMove = value; } }
-    public bool IsMoving { get; set; }
 
     // Accessors
     public List<PlanetController> GetNearPlanets()
@@ -49,6 +48,14 @@ public class PlayerController : MonoBehaviour
 
         if (_canMove)
             _movement.UpdateMovement(_nearPlanets);
+
+        // Deplete energy only if player is moving
+        if (_movement.IsMoving && _energy != null)
+        {
+            if (_energy.UpdateEnergy())
+                PlayerDeath();
+        }
+
     }
 
     public void AddNearPlanet(PlanetController planet)
@@ -81,7 +88,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CollideWithPlanet(PlanetController planet)
+    public void PlayerDeath()
     {
         _canMove = false;
         PlayerManager.RespawnPlayer();
@@ -125,4 +132,6 @@ public class PlayerController : MonoBehaviour
 
     public Quaternion ResetRotation(Quaternion rotation)
         => _movement != null ? _movement.ResetRotation(rotation) : rotation;
+
+    public void ResetEnergy() => _energy?.ResetEnergy();
 }
