@@ -1058,6 +1058,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 936914404958971781, guid: e75034965cce55e4ca2172a8999643a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -600
+      objectReference: {fileID: 0}
+    - target: {fileID: 936914404958971781, guid: e75034965cce55e4ca2172a8999643a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
+      objectReference: {fileID: 0}
     - target: {fileID: 3150392353278156794, guid: e75034965cce55e4ca2172a8999643a7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1272,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: gravity_speed
-      value: 0.0001
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7692740916947324160, guid: c7e75f82d689fe644b6074afc3a212e9, type: 3}
       propertyPath: movementSound
